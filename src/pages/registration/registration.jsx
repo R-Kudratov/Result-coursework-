@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { server } from '../../bff'
 import { setUser } from '../../actions'
@@ -11,16 +11,15 @@ import { Input, Button, H2, AuthFormError, yupAuthScema } from '../../components
 
 import styled from 'styled-components'
 
-const authFormSchema = yup.object().shape(yupAuthScema)
+const regFormSchema = yup.object().shape({
+	...yupAuthScema,
+	passcheck: yup
+		.string()
+		.required('Подтвердите пароль')
+		.oneOf([yup.ref('password'), null], 'Пароли не совпадают'),
+})
 
-const StyledLink = styled(Link)`
-	text-align: center;
-	text-decoration: underline;
-	margin: 20px 0;
-	font-size: 18px;
-`
-
-const AuthorizationContainer = ({ className }) => {
+const RegistrationContainer = ({ className }) => {
 	const {
 		register,
 		reset,
@@ -30,8 +29,9 @@ const AuthorizationContainer = ({ className }) => {
 		defaultValues: {
 			login: '',
 			password: '',
+			passcheck: '',
 		},
-		resolver: yupResolver(authFormSchema),
+		resolver: yupResolver(regFormSchema),
 	})
 
 	const [serverError, setServerError] = useState(null)
@@ -39,7 +39,7 @@ const AuthorizationContainer = ({ className }) => {
 	const navigate = useNavigate()
 
 	const onSubmit = ({ login, password }) => {
-		server.authorize(login, password).then(({ error, response }) => {
+		server.register(login, password).then(({ error, response }) => {
 			if (error) {
 				setServerError(`Ошибка запроса ${error}`)
 				return
@@ -51,12 +51,12 @@ const AuthorizationContainer = ({ className }) => {
 		})
 	}
 
-	const formError = errors.login?.message || errors.password?.message
+	const formError = errors.login?.message || errors.password?.message || errors.passcheck?.message
 	const errorMessage = formError || serverError
 
 	return (
 		<div className={className}>
-			<H2 margin="40px 0">Авторизация</H2>
+			<H2 margin="40px 0">Регистрация</H2>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<Input
 					type="text"
@@ -68,17 +68,21 @@ const AuthorizationContainer = ({ className }) => {
 					placeholder="Пароль"
 					{...register('password', { onChange: () => setServerError(null) })}
 				/>
+				<Input
+					type="password"
+					placeholder="Повторите пароль"
+					{...register('passcheck', { onChange: () => setServerError(null) })}
+				/>
 				<Button type="submit" disabled={!!formError}>
-					Авторизоваться
+					Зарегистрироваться
 				</Button>
 				{errorMessage && <AuthFormError>{errorMessage}</AuthFormError>}
-				<StyledLink to="/register"> Регистрация </StyledLink>
 			</form>
 		</div>
 	)
 }
 
-export const Authorization = styled(AuthorizationContainer)`
+export const Registration = styled(RegistrationContainer)`
 	display: flex;
 	flex-direction: column;
 	align-items: center;

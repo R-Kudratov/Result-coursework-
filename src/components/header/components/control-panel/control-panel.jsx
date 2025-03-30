@@ -7,8 +7,6 @@ import styled from 'styled-components'
 const ControlPanelContainer = ({ className }) => {
 	const roleId = useSelector(selectUserRole)
 
-	console.log(roleId)
-
 	return (
 		<div className={className}>
 			{roleId === ROLE.GUEST ? <LoginButton /> : <UserBlock />}
