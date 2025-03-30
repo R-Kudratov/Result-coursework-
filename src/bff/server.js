@@ -1,9 +1,11 @@
-import { getUser, addUser } from './'
-import { createSession } from './create-session'
+import { getUser, addUser, sessions } from './'
 
 export const server = {
+	async logout(session) {
+		sessions.remove(session)
+	},
 	async authorize(authLogin, authPassword) {
-		const user = getUser(authLogin)
+		const user = await getUser(authLogin)
 
 		if (!user) {
 			return { error: 'Такой пользователь не найден', response: null }
@@ -15,11 +17,16 @@ export const server = {
 
 		return {
 			error: null,
-			response: createSession(user.role_id),
+			response: {
+				id: user.id,
+				login: user.login,
+				role_id: user.role_id,
+				session: sessions.create(user),
+			},
 		}
 	},
 	async register(registerLogin, registerPassword) {
-		const user = getUser(registerLogin)
+		const user = await getUser(registerLogin)
 
 		if (user) {
 			return {
@@ -32,7 +39,12 @@ export const server = {
 
 		return {
 			error: null,
-			response: createSession(3),
+			response: {
+				id: user.id,
+				login: user.login,
+				role_id: user.role_id,
+				session: sessions.create(user),
+			},
 		}
 	},
 }

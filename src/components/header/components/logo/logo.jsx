@@ -26,4 +26,5 @@ const LogoContainer = ({ className }) => (
 export const Logo = styled(LogoContainer)`
 	display: flex;
 	align-items: center;
+	width: 260px;
 `

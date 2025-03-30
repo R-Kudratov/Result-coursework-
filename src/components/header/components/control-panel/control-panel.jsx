@@ -1,48 +1,18 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { Icon } from '../../../../components'
+import { useSelector } from 'react-redux'
+import { ControlButtons, LoginButton, UserBlock } from './components'
+import { ROLE } from '../../../../constants'
+import { selectUserRole } from '../../../../selectors'
 import styled from 'styled-components'
 
-const User = styled.div`
-	align-self: flex-end;
-`
-
-const ControlButtons = styled.div`
-	display: flex;
-	justify-content: space-between;
-	margin-top: 10px;
-`
-
-const Button = styled.button`
-	cursor: pointer;
-	width: 100px;
-	height: 32px;
-	font-size: 18px;
-`
-
-const FakeButton = styled.div`
-	cursor: pointer;
-`
-
 const ControlPanelContainer = ({ className }) => {
-	const navigate = useNavigate()
+	const roleId = useSelector(selectUserRole)
+
+	console.log(roleId)
+
 	return (
 		<div className={className}>
-			<User>
-				<Link to="/login">
-					<Button>Войти</Button>
-				</Link>
-			</User>
-			<ControlButtons>
-				<FakeButton onClick={() => navigate(-1)}>
-					<Icon id="fa-backward" />
-				</FakeButton>
-				<Link to="/post">
-					<Icon id="fa-file-lines" />
-				</Link>
-				<Link to="/users">
-					<Icon id="fa-users" />
-				</Link>
-			</ControlButtons>
+			{roleId === ROLE.GUEST ? <LoginButton /> : <UserBlock />}
+			<ControlButtons />
 		</div>
 	)
 }
@@ -50,5 +20,6 @@ const ControlPanelContainer = ({ className }) => {
 export const ControlPanel = styled(ControlPanelContainer)`
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
+	align-items: flex-end;
+	width: 260px;
 `
