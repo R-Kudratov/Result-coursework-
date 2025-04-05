@@ -10,10 +10,6 @@ const UserName = styled.div`
 	line-height: 24px;
 `
 
-const FakeLogoutButton = styled.div`
-	cursor: pointer;
-`
-
 const UserBlockContainer = ({ className }) => {
 	const dispatch = useDispatch()
 	const login = useSelector(selectUserLogin)
@@ -22,9 +18,7 @@ const UserBlockContainer = ({ className }) => {
 	return (
 		<div className={className}>
 			<UserName>{login}</UserName>
-			<FakeLogoutButton onClick={() => dispatch(logout(session))}>
-				<Icon id="fa-sign-out" margin="0 0 0 10px" />
-			</FakeLogoutButton>
+			<Icon id="fa-sign-out" margin="0 0 0 10px" button={true} onClick={() => dispatch(logout(session))} />
 		</div>
 	)
 }

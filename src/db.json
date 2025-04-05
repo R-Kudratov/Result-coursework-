@@ -4,42 +4,21 @@
       "id": "001",
       "login": "rustam",
       "password": "123456",
-      "registered_at": "2025-03-21",
+      "registered_at": "2025-03-21 22:22",
       "role_id": 0
     },
     {
-      "id": "1743362122058",
-      "login": "ivan",
-      "password": "123456",
-      "registered_at": "2047-06-19 22:02",
-      "role_id": 2
+      "id": "1743804933401",
+      "login": "dsaFHKJASD",
+      "password": "asdfasdf",
+      "registered_at": "2063-08-03 18:46",
+      "role_id": 1
     },
     {
-      "id": "1743362265470",
-      "login": "diana",
-      "password": "123456",
-      "registered_at": "2061-10-13 13:28",
-      "role_id": 2
-    },
-    {
-      "id": "1743362431228",
-      "login": "ivan3",
-      "password": "123456",
-      "registered_at": "2033-05-27 17:22",
-      "role_id": 2
-    },
-    {
-      "id": "1743362484248",
-      "login": "ivan4",
-      "password": "123456",
-      "registered_at": "2045-02-25 18:06",
-      "role_id": 2
-    },
-    {
-      "id": "1743363206508",
-      "login": "sds",
-      "password": "sasdfasdf",
-      "registered_at": "2054-05-16 19:50",
+      "id": "1743805281047",
+      "login": "asdfas",
+      "password": "asdfasdf",
+      "registered_at": "2060-11-29 07:00",
       "role_id": 2
     }
   ],

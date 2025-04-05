@@ -7,11 +7,11 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import { server } from '../../bff'
 import { setUser } from '../../actions'
-import { Input, Button, H2, AuthFormError, yupAuthScema } from '../../components'
+import { Input, Button, H2, AuthFormError, yupAuthSchema } from '../../components'
 
 import styled from 'styled-components'
 
-const authFormSchema = yup.object().shape(yupAuthScema)
+const authFormSchema = yup.object().shape(yupAuthSchema)
 
 const StyledLink = styled(Link)`
 	text-align: center;

@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 
-export const yupAuthScema = {
+export const yupAuthSchema = {
 	login: yup
 		.string()
 		.required('Введите логин')

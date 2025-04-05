@@ -7,12 +7,12 @@ import { useNavigate } from 'react-router-dom'
 
 import { server } from '../../bff'
 import { setUser } from '../../actions'
-import { Input, Button, H2, AuthFormError, yupAuthScema } from '../../components'
+import { Input, Button, H2, AuthFormError, yupAuthSchema } from '../../components'
 
 import styled from 'styled-components'
 
 const regFormSchema = yup.object().shape({
-	...yupAuthScema,
+	...yupAuthSchema,
 	passcheck: yup
 		.string()
 		.required('Подтвердите пароль')
