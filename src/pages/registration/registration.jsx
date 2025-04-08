@@ -45,13 +45,15 @@ const RegistrationContainer = ({ className }) => {
 				return
 			} else {
 				dispatch(setUser(response))
+				sessionStorage.setItem('userData', JSON.stringify(response))
 				reset()
 				navigate('/')
 			}
 		})
 	}
 
-	const formError = errors.login?.message || errors.password?.message || errors.passcheck?.message
+	const formError =
+		errors.login?.message || errors.password?.message || errors.passcheck?.message
 	const errorMessage = formError || serverError
 
 	return (

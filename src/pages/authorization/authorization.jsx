@@ -45,6 +45,7 @@ const AuthorizationContainer = ({ className }) => {
 				return
 			} else {
 				dispatch(setUser(response))
+				sessionStorage.setItem('userData', JSON.stringify(response))
 				reset()
 				navigate('/')
 			}

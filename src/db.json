@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": "001",
+      "id": "1743805533101",
       "login": "rustam",
       "password": "123456",
       "registered_at": "2025-03-21 22:22",
@@ -12,7 +12,7 @@
       "login": "dsaFHKJASD",
       "password": "asdfasdf",
       "registered_at": "2063-08-03 18:46",
-      "role_id": 1
+      "role_id": 2
     },
     {
       "id": "1743805281047",
@@ -84,5 +84,62 @@
       "published_at": "2025-03-01"
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "author_id": "1743805533101",
+      "author_login": "rustam",
+      "post_id": "001",
+      "content": "12341234",
+      "published_at": "2055-12-21 18:19",
+      "id": 1
+    },
+    {
+      "author_id": "1743805533101",
+      "author_login": "rustam",
+      "post_id": "001",
+      "content": "Это второй комментарий",
+      "published_at": "2040-07-19 05:59",
+      "id": 2
+    },
+    {
+      "author_id": "1743805533101",
+      "author_login": "rustam",
+      "post_id": "001",
+      "content": "Это третий комментарий",
+      "published_at": "2039-09-11 22:11",
+      "id": 3
+    },
+    {
+      "author_id": "1743805533101",
+      "author_login": "rustam",
+      "post_id": "001",
+      "content": "3123123",
+      "published_at": "2055-12-01 12:44",
+      "id": 4
+    }
+  ],
+  "sessions": [
+    {
+      "hash": "0.62796367259824692474978746759006753563880920410156",
+      "user": {
+        "id": "1743805533101",
+        "login": "rustam",
+        "password": "123456",
+        "registeredAt": "2025-03-21 22:22",
+        "roleId": 0
+      },
+      "id": 1
+    },
+    {
+      "hash": "0.02826324207462371784771448801620863378047943115234",
+      "user": {
+        "id": "1743805533101",
+        "login": "rustam",
+        "password": "123456",
+        "registeredAt": "2025-03-21 22:22",
+        "roleId": 0
+      },
+      "id": 2
+    }
+  ]
 }
