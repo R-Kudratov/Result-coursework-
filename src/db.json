@@ -89,14 +89,6 @@
       "author_id": "1743805533101",
       "author_login": "rustam",
       "post_id": "001",
-      "content": "12341234",
-      "published_at": "2055-12-21 18:19",
-      "id": 1
-    },
-    {
-      "author_id": "1743805533101",
-      "author_login": "rustam",
-      "post_id": "001",
       "content": "Это второй комментарий",
       "published_at": "2040-07-19 05:59",
       "id": 2
@@ -105,17 +97,25 @@
       "author_id": "1743805533101",
       "author_login": "rustam",
       "post_id": "001",
-      "content": "Это третий комментарий",
-      "published_at": "2039-09-11 22:11",
-      "id": 3
+      "content": "3213213",
+      "published_at": "2041-07-10 01:13",
+      "id": 4
     },
     {
       "author_id": "1743805533101",
       "author_login": "rustam",
       "post_id": "001",
-      "content": "3123123",
-      "published_at": "2055-12-01 12:44",
-      "id": 4
+      "content": "124124",
+      "published_at": "2060-02-04 12:58",
+      "id": 5
+    },
+    {
+      "author_id": "1743805533101",
+      "author_login": "rustam",
+      "post_id": "001",
+      "content": "143254",
+      "published_at": "2055-05-30 20:36",
+      "id": 6
     }
   ],
   "sessions": [
@@ -131,7 +131,7 @@
       "id": 1
     },
     {
-      "hash": "0.02826324207462371784771448801620863378047943115234",
+      "hash": "0.77785764692431547118189882894512265920639038085938",
       "user": {
         "id": "1743805533101",
         "login": "rustam",

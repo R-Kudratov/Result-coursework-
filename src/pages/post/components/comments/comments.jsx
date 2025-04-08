@@ -14,8 +14,6 @@ const CommentsContainer = ({ className, comments, postId }) => {
 	const userLogin = useSelector(selectUserLogin)
 	const requestServer = useServerRequest()
 
-	console.log(comments)
-
 	const onNewCommentAdd = (userId, userLogin, postId, content) => {
 		dispatch(addCommentAsync(requestServer, userId, userLogin, postId, content))
 		setNewComment('')
@@ -42,6 +40,8 @@ const CommentsContainer = ({ className, comments, postId }) => {
 				{comments.map(({ id, authorLogin, content, publishedAt }) => (
 					<Comment
 						key={id}
+						postId={postId}
+						id={id}
 						author={authorLogin}
 						content={content}
 						publishedAt={publishedAt}
