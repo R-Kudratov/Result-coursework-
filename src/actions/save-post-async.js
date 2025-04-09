@@ -1,6 +1,7 @@
 import { setPostData } from './set-post-data'
 
 export const savePostAsync = (requestServer, newPostData) => (dispatch) =>
-	requestServer('savePost', newPostData).then(({ response }) =>
-		dispatch(setPostData(response)),
-	)
+	requestServer('savePost', newPostData).then(({ response }) => {
+		dispatch(setPostData(response))
+		return response
+	})
