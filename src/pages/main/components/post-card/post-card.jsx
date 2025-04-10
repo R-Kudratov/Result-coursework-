@@ -18,11 +18,21 @@ const PostCardContainer = ({
 					<h4>{title}</h4>
 					<div className="post-card-info">
 						<div className="published-at">
-							<Icon id="fa-calendar" fontSize="18px" margin="0 10px 0 0" />
+							<Icon
+								id="fa-calendar"
+								fontSize="18px"
+								margin="0 10px 0 0"
+								button={true}
+							/>
 							{publishedAt}
 						</div>
 						<div className="comments-count">
-							<Icon id="fa-comment" fontSize="18px" margin="0 10px 0 0" />
+							<Icon
+								id="fa-comment"
+								fontSize="18px"
+								margin="0 10px 0 0"
+								button={true}
+							/>
 							{commentsCount}
 						</div>
 					</div>

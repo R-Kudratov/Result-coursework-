@@ -13,7 +13,7 @@ export const Button = styled(ButtonContainer)`
 	justify-content: center;
 	align-items: center;
 	border: 1px solid #000;
-	cursor: pointer;
+	cursor: ${({ disabled = false }) => (disabled ? 'default' : 'pointer')};
 	width: ${({ width = '100%' }) => width};
 	height: 32px;
 	font-size: 18px;
