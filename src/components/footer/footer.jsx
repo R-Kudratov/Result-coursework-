@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { Contacts, Weather } from './components'
 import styled from 'styled-components'
 
@@ -15,7 +14,7 @@ export const Footer = styled(FooterContainer)`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 1200px;
+	width: 1000px;
 	height: 120px;
 	padding: 20px 40px;
 	font-weight: 600;
