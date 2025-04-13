@@ -11,7 +11,7 @@ export const Input = styled(InputContainer)`
 	height: 40px;
 	width: ${({ width = '100%' }) => width};
 	font-size: 18px;
-	padding: 10px;
-	margin: 0 0 10px;
+	padding: ${({ padding = '10px' }) => padding};
+	margin: ${({ margin = '0 0 10px' }) => margin};
 	border: 1px solid #000;
 `
