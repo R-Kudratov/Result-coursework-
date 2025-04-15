@@ -1,5 +1,6 @@
-import { Icon } from '../../../../components'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { Icon } from '../../../../components'
 import styled from 'styled-components'
 
 const PostCardContainer = ({
@@ -82,3 +83,11 @@ export const PostCard = styled(PostCardContainer)`
 		align-items: center;
 	}
 `
+
+PostCard.propTypes = {
+	id: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+	imageUrl: PropTypes.string.isRequired,
+	publishedAt: PropTypes.string.isRequired,
+	commentsCount: PropTypes.number.isRequired,
+}

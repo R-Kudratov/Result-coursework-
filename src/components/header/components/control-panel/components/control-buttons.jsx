@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { Link, useNavigate } from 'react-router-dom'
 import { Icon } from '../../../../../components'
 import styled from 'styled-components'
@@ -30,3 +31,7 @@ export const ControlButtons = styled(ControlButtonsContainer)`
 	width: 100px;
 	margin-top: 10px;
 `
+
+ControlButtons.propTypes = {
+	isAdmin: PropTypes.bool.isRequired,
+}

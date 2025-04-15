@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
+import PropTypes from 'prop-types'
 import { useServerRequest } from '../../../../../../hooks'
 import { removeCommentAsync, openModal, CLOSE_MODAL } from '../../../../../../actions'
 import { Icon } from '../../../../../../components'
@@ -85,3 +86,11 @@ export const Comment = styled(CommentContainer)`
 	& .comment-text {
 	}
 `
+
+Comment.propTypes = {
+	postId: PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
+	author: PropTypes.string.isRequired,
+	content: PropTypes.string.isRequired,
+	publishedAt: PropTypes.string.isRequired,
+}

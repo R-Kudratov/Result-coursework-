@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 import { useServerRequest } from '../../../../hooks'
 import { Icon } from '../../../../components'
 import { TableRow } from '../table-row/table-row.jsx'
 import styled from 'styled-components'
+import { PROP_TYPE } from '../../../../constants/prop-type.js'
 
 const UserRowContainer = ({
 	className,
@@ -71,3 +73,12 @@ export const UserRow = styled(UserRowContainer)`
 		padding: 0 5px;
 	}
 `
+
+UserRow.propTypes = {
+	userId: PropTypes.string.isRequired,
+	login: PropTypes.string.isRequired,
+	registeredAt: PropTypes.string.isRequired,
+	roleId: PROP_TYPE.USER_ROLE_ID,
+	roles: PropTypes.arrayOf(PROP_TYPE.USER_ROLE).isRequired,
+	onUserRemove: PropTypes.func.isRequired,
+}

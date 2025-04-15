@@ -6,6 +6,7 @@ import { useServerRequest } from '../../../../hooks/use-server-request.js'
 import { Input, Icon } from '../../../../components'
 import { SpecialPanel } from '../special-panel/special-panel.jsx'
 import { sanitizeContent } from './utils'
+import { PROP_TYPE } from '../../../../constants'
 import styled from 'styled-components'
 
 const PostFormContainer = ({
@@ -92,3 +93,7 @@ export const PostForm = styled(PostFormContainer)`
 		border: 1px solid #000;
 	}
 `
+
+PostForm.propTypes = {
+	post: PROP_TYPE.POST.isRequired,
+}
