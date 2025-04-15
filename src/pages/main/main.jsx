@@ -4,7 +4,6 @@ import { PostCard, Pagination, Search } from './components'
 import { PAGINATION_LIMIT } from '../../constants'
 import { getLastPageFromLinks, debounce } from './utils'
 import styled from 'styled-components'
-import { set } from 'react-hook-form'
 
 const MainContainer = ({ className }) => {
 	const [posts, setPosts] = useState([])
@@ -21,6 +20,7 @@ const MainContainer = ({ className }) => {
 				setLastPage(getLastPageFromLinks(links))
 			},
 		)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [requestServer, page, shouldSearch])
 
 	const startDelayedSearch = useMemo(() => debounce(setShouldSearch, 2000), [])

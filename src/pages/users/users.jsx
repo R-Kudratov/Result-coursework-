@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { useServerRequest } from '../../hooks'
+import { checkAccess } from '../../utils'
 import { UserRow, TableRow } from './components'
-import { H2, Content } from '../../components'
+import { H2, PrivateContent } from '../../components'
+import { ROLE } from '../../constants'
+import { selectUserRole } from '../../selectors'
 
 import styled from 'styled-components'
-import { ROLE } from '../../constants'
 
 const UsersContainer = ({ className }) => {
 	const [users, setUsers] = useState([])
@@ -12,8 +15,11 @@ const UsersContainer = ({ className }) => {
 	const [errorMessage, setErrorMessage] = useState(null)
 	const [shouldUpdateUserList, setShouldUpdateUserList] = useState(false)
 	const requestServer = useServerRequest()
+	const userRole = useSelector(selectUserRole)
 
 	useEffect(() => {
+		if (!checkAccess([ROLE.ADMIN], userRole)) return
+
 		Promise.all([requestServer('fetchUsers'), requestServer('fetchRoles')]).then(
 			([usersResponse, rolesResponse]) => {
 				if (usersResponse.error || rolesResponse.error) {
@@ -24,17 +30,18 @@ const UsersContainer = ({ className }) => {
 				setRoles(rolesResponse.response)
 			},
 		)
-	}, [requestServer, shouldUpdateUserList])
+	}, [requestServer, shouldUpdateUserList, userRole])
 
 	const onUserRemove = (userId) => {
+		if (!checkAccess([ROLE.ADMIN], userRole)) return
 		requestServer('removeUser', userId).then(() => {
 			setShouldUpdateUserList(!shouldUpdateUserList)
 		})
 	}
 
 	return (
-		<div className={className}>
-			<Content errorMessage={errorMessage}>
+		<PrivateContent access={[ROLE.ADMIN]} serverError={errorMessage}>
+			<div className={className}>
 				<H2>Пользователи</H2>
 				<div>
 					<TableRow>
@@ -49,13 +56,15 @@ const UsersContainer = ({ className }) => {
 							login={login}
 							registeredAt={registeredAt}
 							roleId={roleId}
-							roles={roles.filter(({ id: roleId }) => roleId !== ROLE.GUEST)}
+							roles={roles.filter(
+								({ id: roleId }) => roleId !== ROLE.GUEST,
+							)}
 							onUserRemove={() => onUserRemove(userId)}
 						/>
 					))}
 				</div>
-			</Content>
-		</div>
+			</div>
+		</PrivateContent>
 	)
 }
 

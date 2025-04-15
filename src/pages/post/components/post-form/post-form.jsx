@@ -36,7 +36,6 @@ const PostFormContainer = ({
 				content: newContent,
 			}),
 		).then(({ id: newPostId }) => {
-			console.log(newPostId)
 			navigate(`/post/${newPostId}`)
 		})
 	}

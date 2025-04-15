@@ -7,12 +7,10 @@ const Div = styled.div`
 	align-items: center;
 `
 
-export const Content = ({ errorMessage, children }) =>
-	errorMessage ? (
+export const Error = ({ errorMessage }) =>
+	errorMessage && (
 		<Div>
 			<H2>Ошибка</H2>
 			<div>{errorMessage}</div>
 		</Div>
-	) : (
-		children
 	)
