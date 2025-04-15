@@ -9,16 +9,16 @@
     },
     {
       "id": "1743804933401",
-      "login": "dsaFHKJASD",
-      "password": "asdfasdf",
+      "login": "123",
+      "password": "123456",
       "registered_at": "2063-08-03 18:46",
-      "role_id": 2
+      "role_id": 1
     },
     {
-      "id": "1743805281047",
-      "login": "asdfas",
-      "password": "asdfasdf",
-      "registered_at": "2060-11-29 07:00",
+      "id": "1744737392508",
+      "login": "1234",
+      "password": "123123",
+      "registered_at": "2051-01-14 10:11",
       "role_id": 2
     }
   ],
@@ -209,14 +209,6 @@
       "author_id": "1743805533101",
       "author_login": "rustam",
       "post_id": "001",
-      "content": "3213213",
-      "published_at": "2041-07-10 01:13",
-      "id": 4
-    },
-    {
-      "author_id": "1743805533101",
-      "author_login": "rustam",
-      "post_id": "001",
       "content": "124124",
       "published_at": "2060-02-04 12:58",
       "id": 5
@@ -233,14 +225,6 @@
       "author_id": "1743805533101",
       "author_login": "rustam",
       "post_id": "002",
-      "content": "asdfasdf",
-      "published_at": "2051-05-05 23:28",
-      "id": 7
-    },
-    {
-      "author_id": "1743805533101",
-      "author_login": "rustam",
-      "post_id": "002",
       "content": "asdasaasdf",
       "published_at": "2046-07-10 11:45",
       "id": 8
@@ -252,6 +236,14 @@
       "content": "asdfasdf",
       "published_at": "2040-05-12 00:22",
       "id": 9
+    },
+    {
+      "author_id": "1743804933401",
+      "author_login": "123",
+      "post_id": "002",
+      "content": "Ещё один комментарий",
+      "published_at": "2039-12-24 08:23",
+      "id": 10
     }
   ],
   "sessions": [
@@ -322,13 +314,13 @@
       "id": 6
     },
     {
-      "hash": "0.26444456463506071930424923266400583088397979736328",
+      "hash": "0.45226071416805813107941958151059225201606750488281",
       "user": {
         "id": "1743804933401",
-        "login": "dsaFHKJASD",
-        "password": "asdfasdf",
+        "login": "123",
+        "password": "123456",
         "registeredAt": "2063-08-03 18:46",
-        "roleId": 2
+        "roleId": 1
       },
       "id": 7
     }

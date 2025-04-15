@@ -2,15 +2,17 @@ import { useSelector } from 'react-redux'
 import { ControlButtons, LoginButton, UserBlock } from './components'
 import { ROLE } from '../../../../constants'
 import { selectUserRole } from '../../../../selectors'
+import { checkAccess } from '../../../../utils'
 import styled from 'styled-components'
 
 const ControlPanelContainer = ({ className }) => {
-	const roleId = useSelector(selectUserRole)
+	const userRole = useSelector(selectUserRole)
+	const isAdmin = checkAccess([ROLE.ADMIN], userRole)
 
 	return (
 		<div className={className}>
-			{roleId === ROLE.GUEST ? <LoginButton /> : <UserBlock />}
-			<ControlButtons />
+			{userRole === ROLE.GUEST ? <LoginButton /> : <UserBlock />}
+			<ControlButtons isAdmin={isAdmin} />
 		</div>
 	)
 }

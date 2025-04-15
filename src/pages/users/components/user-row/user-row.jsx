@@ -4,7 +4,15 @@ import { Icon } from '../../../../components'
 import { TableRow } from '../table-row/table-row.jsx'
 import styled from 'styled-components'
 
-const UserRowContainer = ({ className, userId, login, registeredAt, roleId: userRoleId, roles, onUserRemove }) => {
+const UserRowContainer = ({
+	className,
+	userId,
+	login,
+	registeredAt,
+	roleId: userRoleId,
+	roles,
+	onUserRemove,
+}) => {
 	const [initialRoleId, setInitialRoleId] = useState(userRoleId)
 	const [selectedRoleId, setSelectedRoleId] = useState(userRoleId)
 	const requestServer = useServerRequest()
@@ -43,7 +51,12 @@ const UserRowContainer = ({ className, userId, login, registeredAt, roleId: user
 					/>
 				</div>
 			</TableRow>
-			<Icon id="fa-trash" margin="0 0 0 10px" button={true} onClick={onUserRemove} />
+			<Icon
+				id="fa-trash"
+				margin="0 0 0 10px"
+				button={true}
+				onClick={onUserRemove}
+			/>
 		</div>
 	)
 }

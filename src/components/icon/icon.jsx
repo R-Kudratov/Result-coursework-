@@ -10,5 +10,6 @@ export const Icon = styled(IconContainer)`
 	font-size: ${({ fontSize = '24px' }) => fontSize};
 	margin: ${({ margin = '0' }) => margin};
 	color: ${({ disabled = false }) => (disabled ? '#ccc' : '#000')};
-	cursor: ${({ button = false }) => (button ? 'pointer' : 'default')};
+	cursor: ${({ button = false, disabled = false }) =>
+		button && !disabled ? 'pointer' : 'default'};
 `
